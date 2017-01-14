@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>116224472455-fmmniujji2791h0qitktivi3cvq3moo6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.116224472455-fmmniujji2791h0qitktivi3cvq3moo6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCDhw2ZFn3hL0-fpFMM4y7SJ0g-KeK53mw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>116224472455</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kanixlau.Snap</string>
+	<key>PROJECT_ID</key>
+	<string>snap-b9cbd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>snap-b9cbd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:116224472455:ios:52dea9544356f3ad</string>
+	<key>DATABASE_URL</key>
+	<string>https://snap-b9cbd.firebaseio.com</string>
+</dict>
+</plist>

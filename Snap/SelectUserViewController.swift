@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 
 class SelectUserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -16,7 +17,13 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
     
     var users : [User] = []
     
-    var ref : FIRDatabaseReference!
+    var imageURL = ""
+    var descrip = ""
+    var uuid = ""
+    
+    var ref : FIRDatabaseReference = FIRDatabase.database().reference()
+    
+    let currentUserEmail = FIRAuth.auth()?.currentUser?.email
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +34,6 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.delegate = self
         
         //Pull user data from Firebase
-        ref = FIRDatabase.database().reference()
         
         ref.child("users").observe(.childAdded, with: { (snapshot) in
             let value = snapshot.value as? [String:Any]
@@ -57,6 +63,17 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
         cell.textLabel?.text = user.email
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let user = users[indexPath.row]
+        
+        let snap = ["from":currentUserEmail, "description": descrip, "imageURL":imageURL, "uuid": uuid]
+        
+        ref.child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
+        
+        navigationController!.popToRootViewController(animated: true)
     }
 
 }

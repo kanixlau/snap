@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -80,7 +82,7 @@
         <!--Snaps View Controller-->
         <scene sceneID="sz4-R4-XYk">
             <objects>
-                <viewController id="vaX-PL-u6R" customClass="SnapsViewController" customModule="Snap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vaX-PL-u6R" customClass="SnapsViewController" customModule="Snap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Le1-2i-8JL"/>
                         <viewControllerLayoutGuide type="bottom" id="YQ1-4h-Gcm"/>
@@ -88,7 +90,19 @@
                     <view key="view" contentMode="scaleToFill" id="wIL-Zw-eRO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O3E-Uh-Mpe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YQ1-4h-Gcm" firstAttribute="top" secondItem="O3E-Uh-Mpe" secondAttribute="bottom" id="4ux-A0-9Vz"/>
+                            <constraint firstItem="O3E-Uh-Mpe" firstAttribute="leading" secondItem="wIL-Zw-eRO" secondAttribute="leading" id="8TV-Nb-U3C"/>
+                            <constraint firstAttribute="trailing" secondItem="O3E-Uh-Mpe" secondAttribute="trailing" id="Xtt-qq-3LD"/>
+                            <constraint firstItem="O3E-Uh-Mpe" firstAttribute="top" secondItem="Le1-2i-8JL" secondAttribute="bottom" id="sBe-ct-I0S"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y2J-rQ-9GP">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="E1W-TL-ntq">
@@ -102,10 +116,56 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="O3E-Uh-Mpe" id="CJs-tI-gdD"/>
+                        <segue destination="62J-yP-1NP" kind="show" identifier="viewsnapsegue" id="o2z-OX-Fyb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiM-6o-eGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2324" y="119.1904047976012"/>
+        </scene>
+        <!--View Snap View Controller-->
+        <scene sceneID="6o4-2Y-p0d">
+            <objects>
+                <viewController id="62J-yP-1NP" customClass="ViewSnapViewController" customModule="Snap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XLk-wo-GFg"/>
+                        <viewControllerLayoutGuide type="bottom" id="UnO-Le-JPB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qFi-gZ-FXF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is me saying hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ur-Ld-XUT">
+                                <rect key="frame" x="21" y="636" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dph-tz-o5e">
+                                <rect key="frame" x="26" y="74" width="323" height="552"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Ur-Ld-XUT" firstAttribute="top" secondItem="dph-tz-o5e" secondAttribute="bottom" constant="10" id="FLM-ur-Uir"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dph-tz-o5e" secondAttribute="trailing" constant="10" id="Il2-Li-oET"/>
+                            <constraint firstItem="dph-tz-o5e" firstAttribute="leading" secondItem="qFi-gZ-FXF" secondAttribute="leadingMargin" constant="10" id="dGK-Bf-fE8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Ur-Ld-XUT" secondAttribute="trailing" constant="5" id="hBb-oH-cT2"/>
+                            <constraint firstItem="dph-tz-o5e" firstAttribute="top" secondItem="XLk-wo-GFg" secondAttribute="bottom" constant="10" id="lSr-qj-8vU"/>
+                            <constraint firstItem="UnO-Le-JPB" firstAttribute="top" secondItem="7Ur-Ld-XUT" secondAttribute="bottom" constant="10" id="mzj-JJ-gZg"/>
+                            <constraint firstItem="7Ur-Ld-XUT" firstAttribute="leading" secondItem="qFi-gZ-FXF" secondAttribute="leadingMargin" constant="5" id="pPP-cH-sfo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="dph-tz-o5e" id="6ji-Of-adE"/>
+                        <outlet property="textLabel" destination="7Ur-Ld-XUT" id="UCS-Ri-aYd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dlx-ol-0jD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2324" y="861"/>
         </scene>
         <!--Adding View Controller-->
         <scene sceneID="iId-uS-QJ5">
@@ -153,11 +213,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8wT-uh-ozj">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Vcq-A7-Dvs">
-                            <connections>
-                                <action selector="cameraBtn:" destination="uFd-GT-4Bv" id="tCI-Eh-llf"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="Vcq-A7-Dvs">
+                                <connections>
+                                    <action selector="cameraBtn:" destination="uFd-GT-4Bv" id="tCI-Eh-llf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="search" id="Ty5-oW-7g9">
+                                <connections>
+                                    <action selector="searchBtn:" destination="uFd-GT-4Bv" id="Oze-hr-9x3"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="SRx-i0-KoU" id="VBe-eb-s5i"/>

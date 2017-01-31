@@ -1,2 +1,2 @@
 # snap
-Snapchat practice
+Making a practice of the concept of Snapchat
